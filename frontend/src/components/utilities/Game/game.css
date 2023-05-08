@@ -1,0 +1,116 @@
+.dice {
+  margin-top: 10px;
+  height: 500px;
+  width: 500px;
+  align-items: center;
+  background-size: cover;
+  padding: 10px;
+  opacity: 0.1px;
+}
+.dice-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 600px;
+  width: 600px; */
+  /* background-color: black; */
+}
+.dice-btn-wrap {
+  position: relative;
+  bottom: -240px;
+}
+.dice-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 100px;
+}
+.dice-btn button {
+  background: #089a8e;
+}
+.dice-btn button:hover {
+  background: #49d4c9;
+}
+.dice p {
+  color: white;
+  font-size: 25px;
+}
+.dice-tap-btn {
+  position: relative;
+  top: 170px;
+}
+
+.gameactivity {
+  width: 500px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.gameactivitytop {
+  height: 55%;
+  width: 95%;
+  text-align: center;
+}
+
+.gameactivitytop h3{
+  background-color: #49d4c8ad;
+  border-radius: 5px;
+  color: white;
+  
+}
+
+.gameactivitydisc p {
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 23px;
+  font-weight: 900;
+  /* color: #2dd4bf; */
+  color: #ffffff;
+  /* background-color: #089a8e74; */
+  border-radius: 5px;
+  padding: 10px;
+  
+}
+
+.gameactivitybottom {
+  height: 40%;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(72, 72, 72, 0.71);
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.gameactivitybuttons {
+  height: 40%;
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.378);
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.gameactivitybuttons button {
+  border: none;
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: #089a8e;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
