@@ -8,7 +8,6 @@ const Game = () => {
   const [type, setType] = useState("water");
   const [thrown, setThrown] = useState(0);
   const [selected, setSelected] = useState(new Set());
-  const [isFull, setIsFull] = useState(false);
 
   const skipHandler = () => {
     setThrown(2);
@@ -22,8 +21,6 @@ const Game = () => {
       ind = parseInt((Math.random() * 10) % activityDataArray.length);
       ind = ind % activityDataArray.length;
     }
-    console.log(ind);
-    console.log(activityDataArray[ind]);
     const newSet = new Set(JSON.parse(JSON.stringify(Array.from(selected))));
     newSet.add(activityDataArray[ind]);
     setType(activityDataArray[ind]);
