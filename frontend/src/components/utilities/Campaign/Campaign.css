@@ -1,0 +1,35 @@
+
+.outer-box {
+  border: 2px solid rgb(238, 141, 141);
+  border-radius: 20px;
+  box-shadow: 8px 8px 19px rgb(241, 129, 129);
+  margin: 2rem 0rem;
+}
+
+.image-box {
+  height: 250px;
+  width: 100%;
+}
+
+.right-box {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 1rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(93, 163, 224);
+}
+
+.head-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: rgb(184, 231, 109);
+}
+
+.right-box-button {
+  display: flex;
+}
