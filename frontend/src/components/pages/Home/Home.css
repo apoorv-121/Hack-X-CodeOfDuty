@@ -8,7 +8,7 @@
 }
 
 .landleft{
-    width: 300px;
+    width: 320px;
     height: 90vh;
     background-color:rgb(104, 169, 171) ;
     display: flex;
@@ -39,7 +39,7 @@
 
 .userinnerBox svg{
     margin-right: 10px;
-    font-size: 45px;
+    font-size: 40px;
     color: rgb(0, 152, 109);
 }
 

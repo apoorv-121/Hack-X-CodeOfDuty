@@ -32,10 +32,13 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink to="/plant" className="tab-link">
-            Plant
+            Go green
           </NavLink>
           <NavLink to="/animal" className="tab-link">
-            Animal
+            Help Animals
+          </NavLink>
+          <NavLink to="/reccomend" className="tab-link">
+            Reccomendation
           </NavLink>
           {isLoggedIn ? (
             <div className="logout-btn" onClick={logoutHandler}>

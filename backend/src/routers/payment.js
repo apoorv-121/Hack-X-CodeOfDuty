@@ -72,4 +72,14 @@ router.post('/addpayment', async (req, res) => {
 
 })
 
+router.get('/donaters', async(req, res) => {
+    try {
+        const payments = await Payment.find({}).sort({"amount": -1});
+        res.status(200).send(payments);
+    }
+    catch (e) {
+        res.status(500).send({ msg: "error while user" });
+    }
+})
+
 module.exports = router
