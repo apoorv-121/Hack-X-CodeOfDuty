@@ -7,6 +7,7 @@ import Animal from './components/pages/Animal/Animal';
 import Payment from './components/pages/Payment/Payment';
 import StrayAnimal from './components/pages/Animal/UploadAnimal/StrayAnimal';
 import OrganisePlantation from './components/pages/Plant/UploadPlantation/OrganisePlantation';
+import Activity from './components/pages/Activity/Activity'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path='/payment' element={<Payment />} />
         <Route path='/strayanimal' element={<StrayAnimal />} />
         <Route path='/organiseplantation' element={<OrganisePlantation/>} />
+        <Route path='/activity' element={<Activity/>} />
       </Routes>
     </div>
   );
