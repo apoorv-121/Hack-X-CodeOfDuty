@@ -1,63 +1,48 @@
-import React, { useState } from 'react';
-import './Activity.css';
-import { Modal, Button } from 'react-bootstrap';
-
+import React, { useState, useEffect } from "react";
+import {
+  parse,
+  eachDayOfInterval,
+  endOfMonth,
+  format,
+  parseISO,
+  startOfToday,
+} from "date-fns";
+import ActivityCard from "./ActivityCard";
+import axios from "axios";
 const Activity = () => {
-  const [isCompleted, setIsCompleted] = useState(false);
-  const [show, setShow] = useState(false);
+  const [activityList, setActivityList] = useState([]);
 
-  const handleCardLayerClick = () => {
-    handleShow()
-    setIsCompleted(true);
+  const getData = async () => {
+    const response = await axios.get("http://localhost:8000/activities");
+    setActivityList(response.data);
   };
 
-  const uploadPic = () => {
+  useEffect(() => {
+    getData();
+  }, []);
 
-  }
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const currentMonth = format(startOfToday(), "MMM-yyyy");
+  let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
+  let days = eachDayOfInterval({
+    start: firstDayCurrentMonth,
+    end: endOfMonth(firstDayCurrentMonth),
+  });
+  console.log(activityList);
   return (
     <>
-    <div className='day-container'>
-      <div className={`day-card ${isCompleted ? 'done' : 'pending'}`}>
-        <div className="day-card-content">
-            {isCompleted ? (
-                <div className="done-mark-tick"></div>
-            )
-           : null}
-          <div className="day-card-content-day">Day</div>
-          <div>1</div>
-        </div>
-        <div
-          className="card-layer card-layer-pending"
-          onClick={handleCardLayerClick}
-        >
-          {isCompleted ? 'Activity Done' : 'Do your Task Today'}
-        </div>
+      <div className="day-container">
+        {activityList.map((activity) => {
+          return (
+            <ActivityCard
+              onRefresh={getData}
+              key={activity._id}
+              activity={activity}
+            />
+          );
+        })}
       </div>
-
-
-      
-
-{/* Modal */}
-<Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Upload your Today's Activity Photo</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <input type='file' />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={uploadPic}>
-            Submit
-          </Button>
-        </Modal.Footer>
-      </Modal>
-
-    </div>
     </>
   );
 };
 
 export default Activity;
-

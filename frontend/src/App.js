@@ -10,6 +10,7 @@ import OrganisePlantation from "./components/pages/Plant/UploadPlantation/Organi
 import Game from "./components/utilities/Game/Game";
 import Login from "./components/pages/Login/login.jsx";
 import PlatformApp from "./components/pages/Platform";
+import Activity from "./components/pages/Activity/Activity.jsx";
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") ? true : false;
@@ -27,6 +28,7 @@ function App() {
           <Route path="/strayanimal" element={<StrayAnimal />} />
           <Route path="/game" element={<Game />} />
           <Route path="/organiseplantation" element={<OrganisePlantation />} />
+          <Route path="/activity" element={<Activity />} />
         </Route>
 
         <Route path="/auth" element={<Login />} />
@@ -35,4 +37,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;

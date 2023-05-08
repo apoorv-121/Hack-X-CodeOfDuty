@@ -15,10 +15,12 @@ const port = process.env.PORT;
 const paymentRouter = require("./src/routers/payment");
 const storyRouter = require("./src/routers/story");
 const userRouter = require("./src/routers/user");
+const activityRouter = require("./src/routers/activity");
 
 app.use(paymentRouter);
 app.use(storyRouter);
 app.use(userRouter);
+app.use(activityRouter);
 
 app.get("/", (req, res) => {
   res.send({ msg: "Hello, we are connected" });

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import diceGIF from "../../../assets/images/dice.gif";
 import diceImg from "../../../assets/images/diceImg.jpg";
 import "./game.css";
 import { activityData, activityDataArray } from "../../../constants/game";
-
+import axios from "axios";
 const Game = () => {
+  const navigate = useNavigate();
   const [type, setType] = useState("water");
   const [thrown, setThrown] = useState(0);
   const [selected, setSelected] = useState(new Set());
@@ -26,6 +28,14 @@ const Game = () => {
     setType(activityDataArray[ind]);
     setSelected(newSet);
   };
+
+  const selectHandler = async (title) => {
+    const response = await axios.post("http://localhost:8000/activities", {
+      title: title,
+    });
+    navigate("/activity");
+  };
+
   return (
     <div className="dice-wrap">
       {(thrown === 0 || thrown === 1) && (
@@ -90,7 +100,15 @@ const Game = () => {
                   Skip
                 </button>
               )}
-              {thrown === 2 && <button>Select</button>}
+              {thrown === 2 && (
+                <button
+                  onClick={() => {
+                    selectHandler(activityData[type].title);
+                  }}
+                >
+                  Select
+                </button>
+              )}
               {thrown === 3 && (
                 <p>Oops ,You have to choose from three chances only</p>
               )}
