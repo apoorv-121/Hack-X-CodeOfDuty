@@ -31,14 +31,17 @@ const Header = () => {
           <NavLink to="/" className="tab-link">
             Home
           </NavLink>
-          <NavLink to="/plant" className="tab-link">
+          <NavLink to="/gogreen" className="tab-link">
             Go green
           </NavLink>
-          <NavLink to="/animal" className="tab-link">
+          <NavLink to="/helpanimal" className="tab-link">
             Help Animals
           </NavLink>
           <NavLink to="/reccomend" className="tab-link">
             Reccomendation
+          </NavLink>
+          <NavLink to="/game" className="tab-link">
+            Game Section
           </NavLink>
           {isLoggedIn ? (
             <div className="logout-btn" onClick={logoutHandler}>

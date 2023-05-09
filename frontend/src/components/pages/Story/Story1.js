@@ -8,7 +8,7 @@ const Story1 = () => {
 
     const navigate = useNavigate()
 
-    const [stories, setStories] = useState([])
+    const [stories, setStories] = useState(null)
 
 
     useEffect(() => {
@@ -28,7 +28,7 @@ const Story1 = () => {
 
             <div className="ag-courses_box">
                 
-                {stories.length &&
+                {stories &&
                     
                     stories.map((val) =>
                     
