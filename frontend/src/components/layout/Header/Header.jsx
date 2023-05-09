@@ -53,6 +53,9 @@ const Header = (props) => {
           <NavLink to="/game" className="tab-link">
             Game Section
           </NavLink>
+          <NavLink to="/activity" className="tab-link">
+            Activity Section
+          </NavLink>
           {isLoggedIn ? (
             <div className="logout-btn" onClick={logoutHandler}>
               LogOut
