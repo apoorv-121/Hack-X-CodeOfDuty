@@ -103,7 +103,7 @@ const StrayAnimal = () => {
                         <div><MdOutlinePlace /><input type="text" placeholder='Landmark' onChange={(e) => setLandmark(e.target.value)} /></div>
                         <div><TbZip /><input type="text" placeholder='Pin code' onChange={(e) => setZip(e.target.value)} /></div>
 
-                        <div id='fileupload'><h6>Upload the land image:</h6><input type="file" accept='image/*' onChange={uploadAvatar} /></div>
+                        <div id='fileupload'><h6>Upload the animal image:</h6><input type="file" accept='image/*' onChange={uploadAvatar} /></div>
                         <button onClick={handleSubmit}>Save Animal</button>
 
                     </div>

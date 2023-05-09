@@ -12,7 +12,7 @@
 
 .navmain .navright {
   margin-right: 20px;
-  width: 300px;
+  width: 600px;
   display: flex;
   justify-content: space-between;
 }
@@ -25,6 +25,9 @@
 
 .tab-link {
   color: white;
+  background-color: #ffffff4a;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .tab-link:hover {
@@ -39,6 +42,7 @@
 .headlogo {
   cursor: pointer;
 }
+
 .logout-btn {
   font-size: 18px;
   color: white;

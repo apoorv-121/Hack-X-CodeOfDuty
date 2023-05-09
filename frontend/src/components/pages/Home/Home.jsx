@@ -1,90 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Home.css'
 import { FaUserAlt } from 'react-icons/fa'
 import logo from './logo.png'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 
 const Home = () => {
 
   const navigate = useNavigate()
 
-  const [users, setUser] = useState([
-    {
-      id: 1,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 2,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 3,
-      name: 'Ritika Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 4,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 5,
-      name: 'Ashish Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 6,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 7,
-      name: 'Mradul Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 8,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 9,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 10,
-      name: 'Rishu Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    },
-    {
-      id: 11,
-      name: 'Apoorn Singh',
-      event: 'plantation',
-      location: 'iet lko'
-    }
-  ])
+  const [users, setUser] = useState(null)
+
+  useEffect(() => {
+    axios.get('http://localhost:8000/donaters')
+      .then((res) => {
+        // console.log(res.data);
+        setUser(res.data)
+      })
+      .catch((e) => {
+        console.log(e);
+      })
+  }, [])
 
   return (
     <div className="landmain">
       <div className="landleft">
-        {
+        {users &&
           users.map((user) =>
-            <div className="userBox" key={user.id}> 
+            <div className="userBox" key={user._id}>
               <div className="userinnerBox">
-                <FaUserAlt /> <p>{user.name} participate in {user.event} at {user.location} </p>
+                <FaUserAlt /> <p>{user.name} donates {user.amount}</p>
               </div>
             </div>
           )
@@ -103,7 +48,7 @@ const Home = () => {
           </div>
         </div>
         <div className="landrightbottom">
-          
+
           <button className="landbtn" onClick={() => navigate('/organiseplantation')}>Organise Plantation</button>
           <img src={logo} width='200px' />
           <button className="landbtn" onClick={() => navigate('/strayanimal')}>Help Stray Animal</button>
