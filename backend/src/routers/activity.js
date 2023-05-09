@@ -13,7 +13,6 @@ router.use(
 );
 
 router.post("/activities", async (req, res) => {
-  console.log(req.body);
   const activity = new Activity({
     title: req.body.title,
     month: format(startOfToday(), "MMM-yyyy"),
@@ -37,8 +36,9 @@ router.patch("/activities", async (req, res) => {
     await activity.save();
     res.status(201).send({ msg: "successfully updated" });
   } catch (e) {
-    console.log(e);
+
     res.status(400).send(e);
+
   }
 });
 

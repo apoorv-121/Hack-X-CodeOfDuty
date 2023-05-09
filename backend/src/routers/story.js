@@ -4,6 +4,9 @@ require('dotenv').config();
 const cors = require('cors')
 
 const Story = require('../model/storiesmodel');
+const sendEmail = require('../email/account');
+
+// sendEmail()
 
 
 router.use(
@@ -33,6 +36,8 @@ router.post('/hostplantation', async (req, res) => {
         image: req.body.image
     })
 
+
+
     try {
         await plantationdetail.save();
         res.status(201).send({ msg: 'successfully added' });
@@ -57,6 +62,7 @@ router.post('/helpanimals', async (req, res) => {
 
     try {
         await animaldetail.save()
+        sendEmail(req.body.name, req.body.address, req.body.landmark, req.body.zip, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmkOxpAT09fufPpLDuYGSvGqx-MwxYcgcI-Gu-agSc1g&s', 'Help Stray Animals');
         res.status(201).send({ msg: 'successfully added' });
     }
     catch (e) {
@@ -64,5 +70,6 @@ router.post('/helpanimals', async (req, res) => {
     }
 
 })
+
 
 module.exports = router;    

@@ -11,6 +11,9 @@ import Game from "./components/utilities/Game/Game";
 import Login from "./components/pages/Login/login.jsx";
 import PlatformApp from "./components/pages/Platform";
 import Activity from "./components/pages/Activity/Activity.jsx";
+import PersonalRecommend from "./components/pages/recommendation/PersonalRecommend";
+import Story1 from './components/pages/Story/Story1'
+import Story2 from './components/pages/Story/Story2'
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") ? true : false;
@@ -29,11 +32,13 @@ function App() {
           <Route path="/game" element={<Game />} />
           <Route path="/organiseplantation" element={<OrganisePlantation />} />
           <Route path="/activity" element={<Activity />} />
+          <Route path="/reccomend" element={<PersonalRecommend/>} />
+          <Route path="/gogreen" element={<Story1 />} />
+          <Route path="/helpanimal" element={<Story2 />} />
         </Route>
 
         <Route path="/auth" element={<Login />} />
       </Routes>
-
     </div>
   );
 }
