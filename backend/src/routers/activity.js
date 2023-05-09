@@ -13,13 +13,13 @@ router.use(
 );
 
 router.post("/activities", async (req, res) => {
-  console.log(req.body.title);
+  console.log(req.body);
   const activity = new Activity({
     title: req.body.title,
     month: format(startOfToday(), "MMM-yyyy"),
     completed: false,
+    points: req.body.points,
   });
-  console.log(activity);
   try {
     await activity.save();
     res.status(201).send({ msg: "successfully added" });
@@ -30,12 +30,10 @@ router.post("/activities", async (req, res) => {
 
 router.patch("/activities", async (req, res) => {
   try {
-    console.log(req.body.imageURL);
     const activity = await Activity.findOneAndUpdate(
       { _id: req.body._id },
       { completed: true, imageURL: req.body.imageURL }
     );
-    console.log(activity);
     await activity.save();
     res.status(201).send({ msg: "successfully updated" });
   } catch (e) {
@@ -46,10 +44,6 @@ router.patch("/activities", async (req, res) => {
 
 router.get("/activities", async (req, res) => {
   const currentMonth = format(startOfToday(), "MMM-yyyy");
-  //   let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
-  //   const lastDate = endOfMonth(firstDayCurrentMonth);
-  //   console.log(currentMonth);
-  console.log(currentMonth);
   const activities = await Activity.find({
     month: currentMonth,
   });

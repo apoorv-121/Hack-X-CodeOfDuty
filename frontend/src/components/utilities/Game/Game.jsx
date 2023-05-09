@@ -29,10 +29,12 @@ const Game = () => {
     setSelected(newSet);
   };
 
-  const selectHandler = async (title) => {
+  const selectHandler = async (title, points) => {
     const response = await axios.post("http://localhost:8000/activities", {
-      title: title,
+      title,
+      points,
     });
+    console.log(points);
     navigate("/activity");
   };
 
@@ -82,7 +84,10 @@ const Game = () => {
           style={{ backgroundImage: `url(${activityData[type].url})` }}
         >
           <div className="gameactivitytop">
-            <h3> {activityData[type].title} </h3>
+            <h3>
+              {" "}
+              {activityData[type].title} ({activityData[type].crp} points{")"}
+            </h3>
           </div>
           <div className="gameactivitybottom">
             <div className="gameactivitydisc">
@@ -103,7 +108,10 @@ const Game = () => {
               {thrown === 2 && (
                 <button
                   onClick={() => {
-                    selectHandler(activityData[type].title);
+                    selectHandler(
+                      activityData[type].title,
+                      activityData[type].crp
+                    );
                   }}
                 >
                   Select

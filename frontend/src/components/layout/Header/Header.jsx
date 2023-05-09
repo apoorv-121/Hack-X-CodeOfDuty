@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "./logo.png";
 import axios from "axios";
-const Header = () => {
+const Header = (props) => {
   const navigate = useNavigate();
+  const [points, setPoints] = useState(0);
+  const pnts = parseInt(localStorage.getItem("points"));
   const logoutHandler = () => {
     localStorage.removeItem("token");
     navigate("/auth");
@@ -14,6 +16,11 @@ const Header = () => {
     localStorage.setItem("token", "");
     navigate("/login");
   };
+
+  useEffect(() => {
+    setPoints(parseInt(localStorage.getItem("points")));
+  }, [points, pnts]);
+
   const isLoggedIn = localStorage.getItem("token");
   return (
     <>
@@ -26,6 +33,9 @@ const Header = () => {
             alt=""
             onClick={() => navigate("/")}
           />
+          <span className="user-points">
+            You have collected {points} points till now
+          </span>
         </div>
         <div className="navright">
           <NavLink to="/" className="tab-link">
