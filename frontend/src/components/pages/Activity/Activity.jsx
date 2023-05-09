@@ -11,15 +11,22 @@ import ActivityCard from "./ActivityCard";
 import axios from "axios";
 const Activity = () => {
   const [activityList, setActivityList] = useState([]);
-
+  const [points, setPoints] = useState(localStorage.getItem("points"));
   const getData = async () => {
     const response = await axios.get("http://localhost:8000/activities");
     setActivityList(response.data);
+    let sum = 0;
+    response.data.forEach((activity) => {
+      console.log(activity);
+      if (activity.completed) sum += parseInt(activity.points);
+    });
+    localStorage.setItem("points", sum);
+    setPoints(sum);
   };
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [points]);
 
   const currentMonth = format(startOfToday(), "MMM-yyyy");
   let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
@@ -27,7 +34,6 @@ const Activity = () => {
     start: firstDayCurrentMonth,
     end: endOfMonth(firstDayCurrentMonth),
   });
-  console.log(activityList);
   return (
     <>
       <div className="day-container">

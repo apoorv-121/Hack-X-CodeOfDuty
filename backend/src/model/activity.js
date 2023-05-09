@@ -17,6 +17,9 @@ const activitySchema = new mongoose.Schema(
       type: String,
       default: "",
     },
+    points: {
+      type: Number,
+    },
   },
   { timestamps: true }
 );

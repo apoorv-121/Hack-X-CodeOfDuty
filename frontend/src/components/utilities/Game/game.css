@@ -60,11 +60,10 @@
   text-align: center;
 }
 
-.gameactivitytop h3{
+.gameactivitytop h3 {
   background-color: #49d4c8ad;
   border-radius: 5px;
   color: white;
-  
 }
 
 .gameactivitydisc p {
@@ -77,7 +76,6 @@
   /* background-color: #089a8e74; */
   border-radius: 5px;
   padding: 10px;
-  
 }
 
 .gameactivitybottom {
