@@ -12,6 +12,7 @@ router.use(
 router.post("/users", async (req, res) => {
   try {
     const user = new User(req.body);
+    console.log(user);
     await user.save();
     const token = await user.generateAuthToken(user);
     user.token = token;
@@ -39,5 +40,6 @@ router.post("/users/login", async (req, res) => {
     res.status(400).send();
   }
 });
+
 
 module.exports = router;

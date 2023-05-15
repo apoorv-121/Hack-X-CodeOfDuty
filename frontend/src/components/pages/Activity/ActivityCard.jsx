@@ -40,7 +40,7 @@ const ActivityCard = ({ activity, onRefresh }) => {
   };
 
   const uploadPic = async (id) => {
-    const res = await axios.patch("http://localhost:8000/activities", {
+    await axios.patch("http://localhost:8000/activities", {
       _id: id,
       imageURL: image,
     });
@@ -77,10 +77,6 @@ const ActivityCard = ({ activity, onRefresh }) => {
           <input type="file" accept="image/*" onChange={uploadAvatar} />
         </Modal.Body>
         <Modal.Footer>
-          {/* <div id="fileupload">
-            <h6>Upload the animal image:</h6>
-            <input type="file" accept="image/*" onChange={uploadAvatar} />
-          </div> */}
           <Button
             variant="secondary"
             onClick={() => {

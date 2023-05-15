@@ -1,26 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./login.css";
 import axios from "axios";
-// import Alert from "../components/Helpers/Alert";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const handleLoginSubmit = () => {};
 
 const Login = () => {
   const navigate = useNavigate();
   const showLoginContainer = true;
-  const [alertCall, setAlertCall] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
-  const [alertDuration, setAlertDuration] = useState(0);
-  const [alertSeverity, setAlertSeverity] = useState("sucess");
-  const [msg1, setMsg1] = useState("");
-  const [msg2, setMsg2] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [open, setOpen] = useState(false);
-
-  //   const handleAlertClose = (data) => {
-  //     setAlertCall(data);
-  //   };
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -38,7 +26,6 @@ const Login = () => {
       email,
       password,
     });
-    // console.log(response.data.token);
     localStorage.setItem("token", response.data.token);
     navigate("/");
   };
@@ -89,9 +76,14 @@ const Login = () => {
                         className="btn_login"
                         onClick={submitHandler}
                       >
-                        submit
+                        Login Yourself
                       </button>
                     </form>
+                    <Link to="/signup">
+                      <button className="btn_login btn_register">
+                        Want to Register ?
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </>
@@ -102,39 +94,11 @@ const Login = () => {
 
             {/* footer div */}
             <div className="col-md-12">
-              <div className="footerContent">
-                <p>
-                  <a
-                    href="http://www.okcl.org/"
-                    target="_blank"
-                    className="footerLink"
-                  >
-                    OKCL
-                  </a>
-                  <span className="footerBorder">|</span>
-                  <a
-                    href="http://www.okcl.org/about/about-us"
-                    className="footerLink"
-                  >
-                    About Us
-                  </a>
-                  <span className="footerBorder">|</span>
-                  <a href="" className="footerLink">
-                    Blog
-                  </a>
-                </p>
-              </div>
+             
             </div>
           </div>
         </div>
       </section>
-      {/* <Alert
-        msg={alertMessage}
-        severity={alertSeverity}
-        duration={alertDuration}
-        open={alertCall}
-        alertFunction={handleAlertClose}
-      /> */}
     </div>
   );
 };

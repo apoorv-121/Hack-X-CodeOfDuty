@@ -30,11 +30,10 @@ const Game = () => {
   };
 
   const selectHandler = async (title, points) => {
-    const response = await axios.post("http://localhost:8000/activities", {
+    await axios.post("http://localhost:8000/activities", {
       title,
       points,
     });
-    console.log(points);
     navigate("/activity");
   };
 
@@ -51,11 +50,7 @@ const Game = () => {
                 : activityData[type].url
             })`,
           }}
-          // style={{ backgroundImage: `url(${activityData[type].url})` }}
-          // style={{
-          //   backgroundImage:
-          //     "url('https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80')",
-          // }}
+          
           className="dice"
           alt="Example GIF"
         >
@@ -71,7 +66,7 @@ const Game = () => {
                     }, 2000);
                   }}
                 >
-                  Tap to roll Dice
+                  Tap to Roll Dice
                 </button>
               )}
             </div>
