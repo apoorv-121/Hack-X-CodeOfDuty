@@ -1,12 +1,4 @@
 import React, { useState, useEffect } from "react";
-import {
-  parse,
-  eachDayOfInterval,
-  endOfMonth,
-  format,
-  parseISO,
-  startOfToday,
-} from "date-fns";
 import ActivityCard from "./ActivityCard";
 import axios from "axios";
 const Activity = () => {
@@ -17,7 +9,6 @@ const Activity = () => {
     setActivityList(response.data);
     let sum = 0;
     response.data.forEach((activity) => {
-      console.log(activity);
       if (activity.completed) sum += parseInt(activity.points);
     });
     localStorage.setItem("points", sum);
@@ -28,12 +19,6 @@ const Activity = () => {
     getData();
   }, [points]);
 
-  const currentMonth = format(startOfToday(), "MMM-yyyy");
-  let firstDayCurrentMonth = parse(currentMonth, "MMM-yyyy", new Date());
-  let days = eachDayOfInterval({
-    start: firstDayCurrentMonth,
-    end: endOfMonth(firstDayCurrentMonth),
-  });
   return (
     <>
       <div className="day-container">

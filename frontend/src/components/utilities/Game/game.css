@@ -27,6 +27,7 @@
 }
 .dice-btn button {
   background: #089a8e;
+  color: white;
 }
 .dice-btn button:hover {
   background: #49d4c9;
