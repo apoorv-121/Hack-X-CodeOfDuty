@@ -15,6 +15,7 @@ import Signup from "./components/pages/Signup/Signup";
 
 function App() {
   const isLoggedIn = localStorage.getItem("token") ? true : false;
+  console.log(localStorage.getItem("token"))
   return (
     <div className="App">
       <Routes>

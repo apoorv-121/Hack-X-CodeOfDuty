@@ -38,8 +38,8 @@ const Signup = () => {
       });
     }
 
-    if (password.length < 6) {
-      return toast.error("Password must be of atleast 6 characters !!", {
+    if (password.length < 7) {
+      return toast.error("Password must be of atleast 7 characters !!", {
         position: "bottom-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -68,7 +68,7 @@ const Signup = () => {
       password,
     });
 
-    localStorage.setItem("token", response.data.token);
+    await localStorage.setItem("token", response.data.token);
     navigate("/");
   };
 
@@ -98,6 +98,7 @@ const Signup = () => {
                           placeholder="Enter your Full Name"
                           required
                           aria-required="true"
+
                           onChange={(e) => setUser_name(e.target.value)}
                         />
                       </div>
@@ -125,6 +126,7 @@ const Signup = () => {
                           placeholder="Create your Password"
                           required
                           aria-required="true"
+                          // style={{background: "#03675f"}}
                           onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
@@ -151,11 +153,11 @@ const Signup = () => {
                         Register Yourself
                       </button>
                     </form>
-                    <Link to="/auth">
+                      <Link to="/auth">
                       <button className="btn_login btn_register">
-                        Already registered ?
+                          Already registered ?
                       </button>
-                    </Link>
+                      </Link>
                   </div>
                 </div>
               </>

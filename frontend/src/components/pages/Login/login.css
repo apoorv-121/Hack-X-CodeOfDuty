@@ -61,7 +61,7 @@
 }
 
 .loginContainer .formContent .btn_login {
-  width: 110px;
+  width: auto;
   height: 30px;
   background: #03675f;
   border: none;
@@ -71,6 +71,20 @@
   font-size: 12px;
   margin-top: 15px;
   font-family: var(--primary-font-family) !important;
+  padding: 5px 10px;
+}
+.loginContainer .formContent .btn_register {
+  width: auto;
+  height: 30px;
+  background: #03675f;
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 15px;
+  font-family: var(--primary-font-family) !important;
+  padding: 5px 10px;
 }
 
 .loginContainer .formContent .formSubHeader {

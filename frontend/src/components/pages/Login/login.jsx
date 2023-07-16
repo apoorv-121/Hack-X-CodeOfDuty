@@ -26,7 +26,7 @@ const Login = () => {
       email,
       password,
     });
-    localStorage.setItem("token", response.data.token);
+    await localStorage.setItem("token", response.data.token);
     navigate("/");
   };
   return (

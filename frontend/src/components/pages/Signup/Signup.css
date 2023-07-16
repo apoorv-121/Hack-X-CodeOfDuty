@@ -61,7 +61,7 @@
 }
 
 .signupContainer .formContent .btn_login {
-  width: 110px;
+  min-width: auto;
   height: 30px;
   background: #03675f;
   border: none;
@@ -71,6 +71,7 @@
   font-size: 12px;
   margin-top: 15px;
   font-family: var(--primary-font-family) !important;
+  padding:5px 10px;
 }
 
 .signupContainer .formContent .formSubHeader {
