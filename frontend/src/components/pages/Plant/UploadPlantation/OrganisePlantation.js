@@ -17,6 +17,7 @@ const OrganisePlantation = () => {
     const [landmark, setLandmark] = useState('')
     const [zip, setZip] = useState('')
     const [image, setImage] = useState('')
+    const host=process.env.REACT_APP_HOST;
 
     const resizeFile = (file) =>
         new Promise((resolve) => {
@@ -63,7 +64,7 @@ const OrganisePlantation = () => {
             });
         }
 
-        await axios.post('http://localhost:8000/hostplantation', _data)
+        await axios.post(`${host}/hostplantation`, _data)
             .then((res) => {
                 toast.success(res.data.msg, {
                     position: "bottom-right",

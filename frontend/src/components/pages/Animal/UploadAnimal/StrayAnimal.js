@@ -16,6 +16,8 @@ const StrayAnimal = () => {
   const [landmark, setLandmark] = useState("");
   const [zip, setZip] = useState("");
   const [image, setImage] = useState("");
+  const host=process.env.REACT_APP_HOST;
+
 
   const resizeFile = (file) =>
     new Promise((resolve) => {
@@ -66,7 +68,7 @@ const StrayAnimal = () => {
     }
 
     await axios
-      .post("http://localhost:8000/helpanimals", _data)
+      .post(`${host}/helpanimals`, _data)
       .then((res) => {
         toast.success(res.data.msg, {
           position: "bottom-right",

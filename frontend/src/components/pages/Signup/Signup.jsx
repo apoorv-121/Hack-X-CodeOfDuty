@@ -16,6 +16,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const host=process.env.REACT_APP_HOST;
 
   const submitSignupHandler = async (event) => {
     event.preventDefault();
@@ -62,7 +63,7 @@ const Signup = () => {
       });
     }
 
-    const response = await axios.post("http://localhost:8000/users", {
+    const response = await axios.post(`${host}/users`, {
       user_name,
       email,
       password,

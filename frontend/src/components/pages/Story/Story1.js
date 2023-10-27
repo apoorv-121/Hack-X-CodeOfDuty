@@ -7,10 +7,11 @@ const Story1 = () => {
   const navigate = useNavigate();
 
   const [stories, setStories] = useState(null);
+  const host=process.env.REACT_APP_HOST;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/event/plantation`)
+      .get(`${host}/event/plantation`)
       .then((res) => {
         setStories(res.data);
       })

@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Story2 = () => {
   const navigate = useNavigate();
   const [stories, setStories] = useState(null);
+  const host=process.env.REACT_APP_HOST;
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/event/helpanimal`)
+      .get(`${host}/event/helpanimal`)
       .then((res) => {
         setStories(res.data);
       })

@@ -13,6 +13,7 @@ const Payment = () => {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
   const [amount, setAmount] = useState(0)
+  const host=process.env.REACT_APP_HOST;
 
   const handleOpenRazorpay = (data) => {
     const options = {
@@ -24,10 +25,10 @@ const Payment = () => {
       order_id: data.id,
       handler: (response) => {
         // console.log(response, "16");
-        axios.post('http://localhost:8000/verify', { response })
+        axios.post(`${host}/verify`, { response })
           .then(res => {
             // console.log(res);
-            axios.post('http://localhost:8000/addpayment', { name, email, phone, amount, paymentId: response.razorpay_payment_id })
+            axios.post(`${host}/addpayment`, { name, email, phone, amount, paymentId: response.razorpay_payment_id })
               .then(out => {
                 console.log(out.data, '26');
                 navigate('/')
@@ -60,7 +61,7 @@ const Payment = () => {
 
     const _data = { amount };
 
-    axios.post('http://localhost:8000/orders', _data)
+    axios.post(`${host}/orders`, _data)
       .then((res) => {
         console.log(res.data, "11");
         handleOpenRazorpay(res.data.data)

@@ -8,6 +8,8 @@ import {RxCross1} from 'react-icons/rx'
 
 
 const Header1 = () => {
+  const host=process.env.REACT_APP_HOST;
+
   useEffect(() => {
     const mobile_nav = document.querySelector(".mobile-navbar-btn");
     const nav_header = document.querySelector(".header");
@@ -31,7 +33,7 @@ const Header1 = () => {
     navigate("/auth");
   };
   const loginHandler = async () => {
-    await axios.post("http://localhost:8000/users/login");
+    await axios.post(`${host}/users/login`);
     await localStorage.setItem("token", "");
     navigate("/login");
   };

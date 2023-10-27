@@ -4,8 +4,9 @@ import axios from "axios";
 const Activity = () => {
   const [activityList, setActivityList] = useState([]);
   const [points, setPoints] = useState(localStorage.getItem("points"));
+  const host=process.env.REACT_APP_HOST;
   const getData = async () => {
-    const response = await axios.get("http://localhost:8000/activities");
+    const response = await axios.get(`${host}/activities`);
     setActivityList(response.data);
     let sum = 0;
     response.data.forEach((activity) => {

@@ -11,6 +11,7 @@ const Login = () => {
   const showLoginContainer = true;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const host=process.env.REACT_APP_HOST;
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -25,7 +26,7 @@ const Login = () => {
   const submitHandler = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/users/login", {
+      const response = await axios.post(`${host}/users/login`, {
         email,
         password,
       });

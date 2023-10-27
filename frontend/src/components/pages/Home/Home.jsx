@@ -7,12 +7,13 @@ import axios from "axios";
 
 const Home = () => {
   const navigate = useNavigate();
+  const host=process.env.REACT_APP_HOST;
 
   const [users, setUser] = useState(null);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/donaters")
+      .get(`${host}/donaters`)
       .then((res) => {
         setUser(res.data);
       })

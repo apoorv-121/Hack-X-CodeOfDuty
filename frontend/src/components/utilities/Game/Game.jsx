@@ -10,6 +10,7 @@ const Game = () => {
   const [type, setType] = useState("water");
   const [thrown, setThrown] = useState(0);
   const [selected, setSelected] = useState(new Set());
+  const host=process.env.REACT_APP_HOST;
 
   const skipHandler = () => {
     setThrown(2);
@@ -30,7 +31,7 @@ const Game = () => {
   };
 
   const selectHandler = async (title, points) => {
-    await axios.post("http://localhost:8000/activities", {
+    await axios.post(`${host}/activities`, {
       title,
       points,
     });

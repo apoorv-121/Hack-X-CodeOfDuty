@@ -19,6 +19,7 @@ const PersonalRecommend = () => {
   const [quality, setQuality] = useState(null);
   const [color, setColor] = useState(null);
   const [chartdata, setChartData] = useState(null);
+  const host=process.env.REACT_APP_HOST;
 
   // useEffect(() => {
   //   navigator.geolocation.getCurrentPosition(async (res) => {
