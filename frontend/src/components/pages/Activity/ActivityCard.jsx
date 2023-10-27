@@ -9,6 +9,8 @@ const ActivityCard = ({ activity, onRefresh }) => {
   const [image, setImage] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+    const host=process.env.REACT_APP_HOST;
+
   const handleCardLayerClick = () => {
     handleShow();
     // setIsCompleted(true);
@@ -40,7 +42,7 @@ const ActivityCard = ({ activity, onRefresh }) => {
   };
 
   const uploadPic = async (id) => {
-    await axios.patch("http://localhost:8000/activities", {
+    await axios.patch(`${host}/activities`, {
       _id: id,
       imageURL: image,
     });
