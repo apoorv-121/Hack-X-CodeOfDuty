@@ -1,0 +1,134 @@
+.header {
+  padding: 0 2.8rem;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #004a44;
+  color: white;
+}
+
+.navbar-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding-top: 1rem;
+}
+
+.logout-btn {
+  font-size: 18px;
+  color: white;
+  font-weight: 700;
+  line-height: -10px;
+  cursor: pointer;
+}
+
+.navbar-link:link,
+.navbar-link:visited {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s;
+}
+
+.navbar-link:hover,
+.navbar-link:active {
+  color: white;
+  text-shadow: 0px 0px 2px rgb(245, 245, 125);
+}
+
+.mobile-navbar-btn {
+  display: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mobile-navbar-btn svg {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  color: #f5f8fa !important;
+}
+
+.navbar {
+  padding: 1rem 0;
+}
+
+.mobile-nav-icon.close {
+  display: none;
+}
+
+/* 980px  */
+@media (max-width: 62em) {
+  .mobile-navbar-btn {
+    display: block;
+    z-index: 999;
+    color: #212529;
+  }
+
+  .header {
+    position: relative;
+  }
+
+  .headlogo {
+    width: 30%;
+  }
+
+  .navbar {
+    width: 100%;
+    height: 100vh;
+    background: #004a44;
+    border-radius: 0.5rem;
+    position: absolute;
+    top: 19rem;
+    left: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateX(5%);
+    transition: all 0.2s linear;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .active .navbar {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .active .mobile-navbar-btn .mobile-nav-icon.close {
+    display: block;
+  }
+
+  .active .mobile-navbar-btn .mobile-nav-icon.open {
+    display: none;
+  }
+
+  .user-points {
+    display: none;
+  }
+}
+
+/* Below 560px  */
+@media (max-width: 35em) {
+  .header {
+    padding: 0 2.4rem;
+  }
+
+  .headlogo {
+    width: 60%;
+  }
+}

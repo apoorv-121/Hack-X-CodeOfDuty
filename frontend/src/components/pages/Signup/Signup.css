@@ -1,0 +1,120 @@
+.signupContainer {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../../../assets//images/login_bg.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.signupContainer .headerContent {
+  color: #00867b;
+  font-size: 35px;
+  font-weight: 700;
+  float: right;
+  margin-top: 35px;
+  -webkit-animation-name: fadeInDown; /* for fadeinDown animation */
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.signupContainer .formContent {
+  height: 77vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  -webkit-animation-name: fadeIn; /* for animation */
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+}
+
+.signupContainer .formContent .formHeader {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 300;
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.signupContainer .formContent label {
+  font-weight: 600;
+  font-size: 15px;
+  color: #ffffff;
+  padding-bottom: 10px;
+}
+
+.signupContainer .formContent .emailInput {
+  height: 42px;
+  width: 270px;
+  background: #03675f;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+}
+
+.signupContainer .formContent .btn_login {
+  min-width: auto;
+  height: 30px;
+  background: #03675f;
+  border: none;
+  border-radius: 50px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 15px;
+  font-family: var(--primary-font-family) !important;
+  padding:5px 10px;
+}
+
+.signupContainer .formContent .formSubHeader {
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.signupContainer .formContent .formMail {
+  font-weight: 500;
+  font-size: 12px;
+  color: #025750;
+}
+
+.signupContainer .formContent .editEmailIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.signupContainer .formContent .editEmailText {
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 12px;
+  color: #26e9d9;
+  margin-bottom: 5px;
+}
+
+.signupContainer .formContent .resendOtpDiv {
+  display: flex;
+  margin-top: 15px;
+}
+
+.signupContainer .formContent .formResendotp {
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.signupContainer .formContent .emailInput::placeholder {
+  font-family: "Poppins", sans-serif;
+  background: #03675f;
+  font-weight: 400;
+  font-size: 13px;
+  color: #ffffff;
+}
