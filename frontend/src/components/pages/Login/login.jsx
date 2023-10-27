@@ -15,12 +15,11 @@ const Login = () => {
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
-    console.log(event.target.value);
   };
 
   const passwordHandler = (event) => {
     setPassword(event.target.value);
-    console.log(event.target.value);
+
   };
 
   const submitHandler = async (event) => {
